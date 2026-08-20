@@ -2998,3 +2998,196 @@ box-shadow:
 0 0 30px rgba(0,255,255,.4);
 
 }
+/* =========================================
+   FINAL CONTACT SECTION FIX
+   ========================================= */
+
+.contact {
+    width: min(1100px, 90%);
+    margin: 100px auto;
+    padding: 80px 60px;
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15, 25, 50, 0.96),
+            rgba(8, 20, 40, 0.94)
+        );
+
+    border: 1px solid rgba(0, 212, 255, 0.25);
+
+    box-shadow:
+        0 0 40px rgba(0, 180, 255, 0.12),
+        inset 0 0 40px rgba(0, 180, 255, 0.03);
+
+    text-align: center;
+    color: white;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: "";
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -150px;
+    top: -150px;
+
+    background: rgba(0, 180, 255, 0.15);
+
+    filter: blur(80px);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.contact h2 {
+    position: relative;
+
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #00d9ff,
+        #6c63ff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact > p {
+    position: relative;
+
+    font-size: 1.2rem;
+    color: #b8c7dc;
+
+    margin-bottom: 45px;
+}
+
+.contact-card {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    max-width: 950px;
+    margin: 0 auto 35px;
+}
+
+.contact-item {
+    min-height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: #e8f7ff;
+
+    font-size: 1rem;
+
+    transition: 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(0, 217, 255, 0.5);
+
+    background: rgba(0, 217, 255, 0.08);
+
+    box-shadow:
+        0 10px 30px rgba(0, 180, 255, 0.15);
+}
+
+.contact-btn {
+    position: relative;
+
+    border: none;
+    outline: none;
+
+    padding: 16px 35px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #00d9ff,
+        #6366f1
+    );
+
+    color: white;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0, 180, 255, 0.25);
+
+    transition: 0.3s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 15px 40px rgba(0, 180, 255, 0.4);
+}
+
+
+/* Remove old friendship UI if CSS still exists */
+
+.secret-friend,
+.daily-msg,
+#friendBtn,
+#friendMessage,
+.friendship-section,
+.friendship-timeline,
+.memory-vault {
+    display: none !important;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .contact {
+        width: 90%;
+        padding: 60px 25px;
+    }
+
+    .contact-card {
+        grid-template-columns: 1fr;
+    }
+
+    .contact h2 {
+        font-size: 2.8rem;
+    }
+
+    .contact-item {
+        min-height: 80px;
+    }
+}

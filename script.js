@@ -2,398 +2,496 @@
    PROJECT AURORA PREMIUM V4
 ========================================== */
 
+
 /* ==========================
    LOADER
 ========================== */
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 
-const loader =
-document.getElementById("loader");
+    const loader = document.getElementById("loader");
 
-if(loader){
+    if (loader) {
 
-setTimeout(()=>{
+        setTimeout(() => {
 
-loader.style.opacity="0";
+            loader.style.opacity = "0";
 
-setTimeout(()=>{
-loader.style.display="none";
-},500);
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 500);
 
-},2000);
+        }, 2000);
 
-}
+    }
 
 });
+
 
 /* ==========================
    EXPLORE BUTTON
 ========================== */
 
 const exploreBtn =
-document.getElementById("exploreBtn");
+    document.getElementById("exploreBtn");
 
-if(exploreBtn){
+if (exploreBtn) {
 
-exploreBtn.addEventListener("click",()=>{
+    exploreBtn.addEventListener("click", () => {
 
-document
-.getElementById("projects")
-.scrollIntoView({
-behavior:"smooth"
-});
+        const projects =
+            document.getElementById("projects");
 
-});
+        if (projects) {
+
+            projects.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
 
 }
+
 
 /* ==========================
    SCROLL PROGRESS BAR
 ========================== */
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-const winScroll =
-document.documentElement.scrollTop;
+    const winScroll =
+        document.documentElement.scrollTop;
 
-const height =
-document.documentElement.scrollHeight -
-document.documentElement.clientHeight;
+    const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
 
-const progress =
-(winScroll/height)*100;
+    const progress =
+        height > 0
+            ? (winScroll / height) * 100
+            : 0;
 
-const bar =
-document.getElementById("progressBar");
+    const bar =
+        document.getElementById("progressBar");
 
-if(bar){
+    if (bar) {
 
-bar.style.width =
-progress + "%";
+        bar.style.width =
+            progress + "%";
 
-}
+    }
 
 });
+
 
 /* ==========================
    TYPING EFFECT
 ========================== */
 
 const typingTarget =
-document.getElementById("typingText");
+    document.getElementById("typingText");
 
 const text =
-"Builder • Dreamer • Innovator • Future Founder";
+    "Builder • Dreamer • Innovator • Future Founder";
 
 let index = 0;
 
-function typeText(){
+function typeText() {
 
-if(!typingTarget) return;
+    if (!typingTarget) return;
 
-if(index < text.length){
+    if (index < text.length) {
 
-typingTarget.innerHTML +=
-text.charAt(index);
+        typingTarget.innerHTML +=
+            text.charAt(index);
 
-index++;
+        index++;
 
-setTimeout(typeText,70);
+        setTimeout(typeText, 70);
 
-}
+    }
 
 }
 
 typeText();
+
 
 /* ==========================
    REVEAL ANIMATION
 ========================== */
 
 const revealElements =
-document.querySelectorAll(
-".project-card,.skill-card,.dream-card,.timeline-item,.dashboard-card"
-);
+    document.querySelectorAll(
+        ".project-card,.skill-card,.dream-card,.timeline-item,.dashboard-card"
+    );
 
 const revealObserver =
-new IntersectionObserver((entries)=>{
+    new IntersectionObserver((entries) => {
 
-entries.forEach(entry=>{
+        entries.forEach(entry => {
 
-if(entry.isIntersecting){
+            if (entry.isIntersecting) {
 
-entry.target.style.opacity="1";
+                entry.target.style.opacity = "1";
 
-entry.target.style.transform=
-"translateY(0)";
+                entry.target.style.transform =
+                    "translateY(0)";
 
-}
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+
+revealElements.forEach(el => {
+
+    el.style.opacity = "0";
+
+    el.style.transform =
+        "translateY(40px)";
+
+    el.style.transition =
+        ".8s ease";
+
+    revealObserver.observe(el);
 
 });
 
-},{
-threshold:0.15
-});
-
-revealElements.forEach(el=>{
-
-el.style.opacity="0";
-
-el.style.transform=
-"translateY(40px)";
-
-el.style.transition=
-".8s ease";
-
-revealObserver.observe(el);
-
-});
 
 /* ==========================
    COUNTERS
 ========================== */
 
 const counters =
-document.querySelectorAll(".counter");
+    document.querySelectorAll(".counter");
 
-counters.forEach(counter=>{
+counters.forEach(counter => {
 
-const updateCounter=()=>{
+    const updateCounter = () => {
 
-const target =
-+counter.getAttribute("data-target");
+        const target =
+            +counter.getAttribute("data-target");
 
-const current =
-+counter.innerText;
+        const current =
+            +counter.innerText;
 
-const increment =
-target/100;
+        const increment =
+            target / 100;
 
-if(current < target){
+        if (current < target) {
 
-counter.innerText =
-Math.ceil(current + increment);
+            counter.innerText =
+                Math.ceil(current + increment);
 
-setTimeout(updateCounter,20);
+            setTimeout(updateCounter, 20);
 
-}
-else{
+        } else {
 
-counter.innerText =
-target;
+            counter.innerText =
+                target;
 
-}
+        }
 
-};
+    };
 
-updateCounter();
+    updateCounter();
 
 });
+
 
 /* ==========================
    HIMIGPT CHAT
 ========================== */
 
-async function sendMessage(){
+async function sendMessage() {
 
-const input =
-document.getElementById("userInput");
+    const input =
+        document.getElementById("userInput");
 
-const messages =
-document.getElementById("chatMessages");
+    const messages =
+        document.getElementById("chatMessages");
 
-const message =
-input.value.trim();
+    if (!input || !messages) return;
 
-if(message==="") return;
+    const message =
+        input.value.trim();
 
-messages.innerHTML +=
-`
-<div class="user-message">
-${message}
-</div>
-`;
+    if (message === "") return;
 
-input.value="";
 
-try{
+    /* USER MESSAGE */
 
-const response =
-await fetch(
-"https://himigpt-backend.onrender.com/chat",
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-message:message
-})
+    messages.innerHTML +=
+        `
+        <div class="user-message">
+            ${message}
+        </div>
+        `;
+
+    input.value = "";
+
+
+    /* AI THINKING MESSAGE */
+
+    messages.innerHTML +=
+        `
+        <div class="bot-message ai-thinking">
+            🤖 HimiGPT is thinking...
+        </div>
+        `;
+
+    messages.scrollTop =
+        messages.scrollHeight;
+
+
+    try {
+
+        const response =
+            await fetch(
+                "https://himigpt-backend.onrender.com/chat",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        message: message
+                    })
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `Server Error: ${response.status}`
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        /* REMOVE THINKING MESSAGE */
+
+        const thinking =
+            messages.querySelector(
+                ".ai-thinking"
+            );
+
+        if (thinking) {
+            thinking.remove();
+        }
+
+
+        /* AI RESPONSE */
+
+        messages.innerHTML +=
+            `
+            <div class="bot-message">
+                ${data.reply || "No response received."}
+            </div>
+            `;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "HimiGPT Error:",
+            error
+        );
+
+
+        const thinking =
+            messages.querySelector(
+                ".ai-thinking"
+            );
+
+        if (thinking) {
+            thinking.remove();
+        }
+
+
+        messages.innerHTML +=
+            `
+            <div class="bot-message">
+                ❌ Unable to connect to HimiGPT.
+                Please try again.
+            </div>
+            `;
+
+    }
+
+
+    messages.scrollTop =
+        messages.scrollHeight;
+
 }
-);
 
-const data =
-await response.json();
-
-messages.innerHTML +=
-`
-<div class="bot-message">
-${data.reply}
-</div>
-`;
-
-}
-catch(error){
-
-messages.innerHTML +=
-`
-<div class="bot-message">
-❌ Backend Offline
-</div>
-`;
-
-}
-
-messages.scrollTop =
-messages.scrollHeight;
-
-}
 
 /* ==========================
    AI FLOATING ASSISTANT
 ========================== */
 
 const bubble =
-document.getElementById("aiBubble");
+    document.getElementById("aiBubble");
 
 const popup =
-document.getElementById("aiPopup");
+    document.getElementById("aiPopup");
 
 const closeBtn =
-document.getElementById("closePopup");
+    document.getElementById("closePopup");
 
-if(bubble && popup){
 
-bubble.onclick=()=>{
+if (bubble && popup) {
 
-popup.style.display="block";
+    bubble.onclick = () => {
 
-};
+        popup.style.display =
+            "block";
+
+    };
+
+}
+
+
+if (closeBtn && popup) {
+
+    closeBtn.onclick = () => {
+
+        popup.style.display =
+            "none";
+
+    };
 
 }
 
-if(closeBtn){
-
-closeBtn.onclick=()=>{
-
-popup.style.display="none";
-
-};
-
-}
 
 /* ==========================
    AURORA OS ICONS
 ========================== */
 
 document
-.querySelectorAll(".app-icon")
-.forEach(icon=>{
+    .querySelectorAll(".app-icon")
+    .forEach(icon => {
 
-icon.addEventListener("click",()=>{
+        icon.addEventListener(
+            "click",
+            () => {
 
-const app =
-icon.innerText.trim();
+                const app =
+                    icon.innerText.trim();
 
-alert(
-"Launching " + app + " 🚀"
-);
+                alert(
+                    "Launching " +
+                    app +
+                    " 🚀"
+                );
 
-});
+            }
+        );
 
-});
+    });
+
 
 /* ==========================
    PARALLAX EFFECT
 ========================== */
 
 document.addEventListener(
-"mousemove",
-(e)=>{
+    "mousemove",
+    (e) => {
 
-const hero =
-document.querySelector(".hero");
+        const hero =
+            document.querySelector(".hero");
 
-if(!hero) return;
+        if (!hero) return;
 
-const x =
-(e.clientX/window.innerWidth)*20;
+        const x =
+            (e.clientX / window.innerWidth) * 20;
 
-const y =
-(e.clientY/window.innerHeight)*20;
+        const y =
+            (e.clientY / window.innerHeight) * 20;
 
-hero.style.backgroundPosition =
-`${x}px ${y}px`;
+        hero.style.backgroundPosition =
+            `${x}px ${y}px`;
 
-}
+    }
 );
+
 
 /* ==========================
    PARTICLES JS
 ========================== */
 
-if(typeof particlesJS !== "undefined"){
+if (
+    typeof particlesJS !== "undefined"
+) {
 
-particlesJS("particles-js",{
+    particlesJS(
+        "particles-js",
+        {
 
-particles:{
+            particles: {
 
-number:{
-value:70
-},
+                number: {
+                    value: 70
+                },
 
-color:{
-value:"#8ab4ff"
-},
+                color: {
+                    value: "#8ab4ff"
+                },
 
-shape:{
-type:"circle"
-},
+                shape: {
+                    type: "circle"
+                },
 
-opacity:{
-value:0.5
-},
+                opacity: {
+                    value: 0.5
+                },
 
-size:{
-value:3
-},
+                size: {
+                    value: 3
+                },
 
-line_linked:{
+                line_linked: {
 
-enable:true,
+                    enable: true,
 
-distance:150,
+                    distance: 150,
 
-color:"#8ab4ff",
+                    color: "#8ab4ff",
 
-opacity:0.25
+                    opacity: 0.25
 
-},
+                },
 
-move:{
+                move: {
 
-enable:true,
+                    enable: true,
 
-speed:2
+                    speed: 2
+
+                }
+
+            }
+
+        }
+    );
 
 }
 
-}
-
-});
-
-}
 
 /* ==========================
    GREETING
@@ -401,410 +499,452 @@ speed:2
 
 const greetings = [
 
-"Welcome Back Himanshu 🚀",
+    "Welcome Back Himanshu 🚀",
 
-"Future Founder Detected 👑",
+    "Future Founder Detected 👑",
 
-"Aurora Systems Online 🤖",
+    "Aurora Systems Online 🤖",
 
-"Mission Active ⚡",
+    "Mission Active ⚡",
 
-"Building Tomorrow Today 🌌"
+    "Building Tomorrow Today 🌌"
 
 ];
 
+
 console.log(
-
-greetings[
-Math.floor(
-Math.random()*greetings.length
-)
-]
-
+    greetings[
+        Math.floor(
+            Math.random() *
+            greetings.length
+        )
+    ]
 );
+
 
 /* ==========================
    COMMAND CENTER
 ========================== */
 
 document.addEventListener(
-"keydown",
-(e)=>{
+    "keydown",
+    (e) => {
 
-if(e.ctrlKey && e.key==="k"){
+        if (
+            e.ctrlKey &&
+            e.key.toLowerCase() === "k"
+        ) {
 
-e.preventDefault();
+            e.preventDefault();
 
-alert(
-"Aurora Command Center Coming Soon 🚀"
+            alert(
+                "Aurora Command Center Coming Soon 🚀"
+            );
+
+        }
+
+    }
 );
+
+
+/* ==========================
+   STATUS ANIMATION
+========================== */
+
+setInterval(() => {
+
+    const status =
+        document.querySelector(".online");
+
+    if (status) {
+
+        status.style.opacity =
+            status.style.opacity === "0.5"
+                ? "1"
+                : "0.5";
+
+    }
+
+}, 800);
+
+
+/* ==========================
+   MOUSE GLOW
+========================== */
+
+const glow =
+    document.querySelector(".mouse-glow");
+
+if (glow) {
+
+    document.addEventListener(
+        "mousemove",
+        (e) => {
+
+            glow.style.left =
+                e.clientX + "px";
+
+            glow.style.top =
+                e.clientY + "px";
+
+        }
+    );
 
 }
 
+
+/* ==========================
+   PROJECT CARD 3D EFFECT
+========================== */
+
+const cards =
+    document.querySelectorAll(
+        ".project-card"
+    );
+
+
+cards.forEach(card => {
+
+    card.addEventListener(
+        "mousemove",
+        (e) => {
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                e.clientX - rect.left;
+
+            const y =
+                e.clientY - rect.top;
+
+            const rotateY =
+                ((x / rect.width) - 0.5) * 20;
+
+            const rotateX =
+                ((y / rect.height) - 0.5) * -20;
+
+            card.style.transform =
+                `rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-10px)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        () => {
+
+            card.style.transform =
+                "rotateX(0deg) rotateY(0deg)";
+
+        }
+    );
+
+});
+
+
+/* ==========================
+   CIRCULAR SKILLS
+========================== */
+
+const circles =
+    document.querySelectorAll(
+        ".circle"
+    );
+
+
+circles.forEach(circle => {
+
+    const percent =
+        circle.dataset.percent;
+
+    const degree =
+        (percent / 100) * 360;
+
+    circle.style.background =
+        `conic-gradient(
+            #00d4ff ${degree}deg,
+            rgba(255,255,255,.08) ${degree}deg
+        )`;
+
+});
+
+
+/* ==========================
+   LIVE CLOCK
+========================== */
+
+function updateClock() {
+
+    const clock =
+        document.getElementById(
+            "liveClock"
+        );
+
+    if (!clock) return;
+
+    const now =
+        new Date();
+
+    clock.innerHTML =
+        now.toLocaleTimeString();
+
 }
+
+
+setInterval(
+    updateClock,
+    1000
 );
+
+updateClock();
+
+
+/* ==========================
+   AURORA TERMINAL
+========================== */
+
+function runCommand() {
+
+    const input =
+        document.getElementById(
+            "terminalCommand"
+        );
+
+    const output =
+        document.getElementById(
+            "terminalOutput"
+        );
+
+    if (!input || !output) return;
+
+    const cmd =
+        input.value
+            .trim()
+            .toLowerCase();
+
+    let response =
+        "Unknown command.";
+
+
+    if (cmd === "whoami") {
+
+        response =
+            "Himanshu | Physics Student | AI Builder";
+
+    }
+
+    else if (cmd === "projects") {
+
+        response =
+            "HimiGPT, FutureSite, MyCBSE, Aurora";
+
+    }
+
+    else if (cmd === "startup") {
+
+        response =
+            "Mission: Build Billion Dollar AI Startup";
+
+    }
+
+    else if (cmd === "future") {
+
+        response =
+            "AI + Robotics + AGI + Innovation";
+
+    }
+
+    else if (cmd === "skills") {
+
+        response =
+            "Python, AI, Web Development, Physics";
+
+    }
+
+
+    output.innerHTML +=
+        `<div>> ${cmd}</div>`;
+
+    output.innerHTML +=
+        `<div>${response}</div>`;
+
+    output.scrollTop =
+        output.scrollHeight;
+
+    input.value = "";
+
+}
+
+
+/* ==========================
+   VAULT
+========================== */
+
+const unlockVault =
+    document.getElementById(
+        "unlockVault"
+    );
+
+if (unlockVault) {
+
+    unlockVault.addEventListener(
+        "click",
+        () => {
+
+            const vaultContent =
+                document.getElementById(
+                    "vaultContent"
+                );
+
+            if (vaultContent) {
+
+                vaultContent.style.display =
+                    "block";
+
+            }
+
+            if (
+                typeof confetti ===
+                "function"
+            ) {
+
+                confetti({
+                    particleCount: 150,
+                    spread: 120
+                });
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================
+   AI PROMPT HELPERS
+========================== */
+
+function fillPrompt(text) {
+
+    const input =
+        document.getElementById(
+            "userInput"
+        );
+
+    if (input) {
+
+        input.value =
+            text;
+
+        input.focus();
+
+    }
+
+}
+
+
+/* ==========================
+   ENTER TO SEND MESSAGE
+========================== */
+
+const userInput =
+    document.getElementById(
+        "userInput"
+    );
+
+
+if (userInput) {
+
+    userInput.addEventListener(
+        "keypress",
+        function (e) {
+
+            if (e.key === "Enter") {
+
+                sendMessage();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================
+   VOICE INPUT
+========================== */
+
+function startVoice() {
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+
+    if (!SpeechRecognition) {
+
+        alert(
+            "Voice recognition not supported."
+        );
+
+        return;
+
+    }
+
+
+    const recognition =
+        new SpeechRecognition();
+
+
+    recognition.lang =
+        "en-US";
+
+
+    recognition.start();
+
+
+    recognition.onresult =
+        (event) => {
+
+            const input =
+                document.getElementById(
+                    "userInput"
+                );
+
+            if (input) {
+
+                input.value =
+                    event.results[0][0]
+                        .transcript;
+
+            }
+
+        };
+
+
+    recognition.onerror =
+        (event) => {
+
+            console.error(
+                "Voice recognition error:",
+                event.error
+            );
+
+        };
+
+}
+
 
 /* ==========================
    END
 ========================== */
 
 console.log(
-"PROJECT AURORA V4 LOADED 🚀"
+    "PROJECT AURORA V4 + HimiGPT LOADED 🚀"
 );
-setInterval(()=>{
-
-const status =
-document.querySelector(".online");
-
-if(status){
-
-status.style.opacity =
-status.style.opacity==="0.5"
-? "1"
-: "0.5";
-
-}
-
-},800);
-const glow =
-document.querySelector(".mouse-glow");
-
-document.addEventListener("mousemove",(e)=>{
-
-glow.style.left =
-e.clientX + "px";
-
-glow.style.top =
-e.clientY + "px";
-
-});
-const cards =
-document.querySelectorAll(".project-card");
-
-cards.forEach(card=>{
-
-card.addEventListener("mousemove",(e)=>{
-
-const rect =
-card.getBoundingClientRect();
-
-const x =
-e.clientX - rect.left;
-
-const y =
-e.clientY - rect.top;
-
-const rotateY =
-((x / rect.width)-0.5)*20;
-
-const rotateX =
-((y / rect.height)-0.5)*-20;
-
-card.style.transform =
-`rotateX(${rotateX}deg)
- rotateY(${rotateY}deg)
- translateY(-10px)`;
-
-});
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.transform =
-"rotateX(0deg) rotateY(0deg)";
-
-});
-
-});
-const circles =
-document.querySelectorAll(".circle");
-
-circles.forEach(circle=>{
-
-const percent =
-circle.dataset.percent;
-
-const degree =
-(percent/100)*360;
-
-circle.style.background =
-`conic-gradient(
-#00d4ff ${degree}deg,
-rgba(255,255,255,.08) ${degree}deg
-)`;
-
-});
-function updateClock(){
-
-const now =
-new Date();
-
-document
-.getElementById("liveClock")
-.innerHTML =
-now.toLocaleTimeString();
-
-}
-
-setInterval(updateClock,1000);
-
-updateClock();
-function runCommand(){
-
-const input =
-document.getElementById("terminalCommand");
-
-const output =
-document.getElementById("terminalOutput");
-
-const cmd =
-input.value.toLowerCase();
-
-let response =
-"Unknown command.";
-
-if(cmd==="whoami"){
-
-response =
-"Himanshu | Physics Student | AI Builder";
-
-}
-
-else if(cmd==="projects"){
-
-response =
-"HimiGPT, FutureSite, MyCBSE, Aurora";
-
-}
-
-else if(cmd==="startup"){
-
-response =
-"Mission: Build Billion Dollar AI Startup";
-
-}
-
-else if(cmd==="future"){
-
-response =
-"AI + Robotics + AGI + Innovation";
-
-}
-
-else if(cmd==="skills"){
-
-response =
-"Python, AI, Web Development, Physics";
-
-}
-
-output.innerHTML +=
-`<div>> ${cmd}</div>`;
-
-output.innerHTML +=
-`<div>${response}</div>`;
-
-output.scrollTop =
-output.scrollHeight;
-
-input.value="";
-
-}
-document
-.getElementById("friendBtn")
-.addEventListener("click",()=>{
-
-document
-.getElementById("friendMessage")
-.style.opacity="1";
-
-});
-document.getElementById("secretFriend").onclick=()=>{
-
-document.body.insertAdjacentHTML("beforeend",`
-
-<div class="shreya-modal">
-
-<div class="shreya-card">
-
-<h1>🌸 Shreya Mode Activated</h1>
-
-<p>
-One of the best people in my journey.
-</p>
-
-<p>
-Thank you for the laughs,
-the support,
-and for being a wonderful friend.
-</p>
-
-<button onclick="this.parentElement.parentElement.remove()">
-Close
-</button>
-
-</div>
-
-</div>
-
-`);
-
-};
-const msgs=[
-
-"Shreya, thanks for being awesome 🌸",
-
-"Friendship > Everything ✨",
-
-"Some people make journeys better 🚀",
-
-"Keep smiling today 🌼"
-
-];
-
-setInterval(()=>{
-
-document.getElementById("dailyMsg")
-.innerText=
-msgs[Math.floor(Math.random()*msgs.length)];
-
-},3000);
-document.getElementById("secretFriend").onclick=()=>{
-
-document.body.insertAdjacentHTML(
-"beforeend",
-
-`
-
-<div class="shreya-modal">
-
-<div class="shreya-card">
-
-<h1>🌸 Shreya Mode Activated</h1>
-
-<p>
-One of the best people in my journey.
-</p>
-
-<p>
-Thank you for the laughs,
-the support,
-and for being a wonderful friend.
-</p>
-
-<p>
-✨ Friendship makes every mission easier.
-</p>
-
-<button onclick="closeShreya()">
-Close
-</button>
-
-</div>
-
-</div>
-
-`
-
-);
-
-};
-
-function closeShreya(){
-
-document
-.querySelector(".shreya-modal")
-.remove();
-
-}
-document
-.getElementById("unlockVault")
-.addEventListener("click",()=>{
-
-document
-.getElementById("vaultContent")
-.style.display="block";
-
-});
-document
-.getElementById("unlockVault")
-.addEventListener("click",()=>{
-
-document
-.getElementById("vaultContent")
-.style.display="block";
-
-confetti({
-particleCount:150,
-spread:120
-});
-
-});
-function fillPrompt(text){
-
-document.getElementById(
-"userInput"
-).value = text;
-
-}
-document
-.getElementById("userInput")
-.addEventListener("keypress",function(e){
-
-if(e.key==="Enter"){
-
-sendMessage();
-
-}
-
-});
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-const speech =
-new SpeechSynthesisUtterance(
-"Hello Shreya. I am sorry. Wishing you a wonderful day."
-);
-
-speech.rate = 0.95;
-speech.pitch = 1.1;
-speech.volume = 1;
-
-speechSynthesis.speak(speech);
-
-},2000);
-
-});
-function startVoice(){
-
-const SpeechRecognition =
-window.SpeechRecognition ||
-window.webkitSpeechRecognition;
-
-if(!SpeechRecognition){
-
-alert(
-"Voice recognition not supported."
-);
-
-return;
-}
-
-const recognition =
-new SpeechRecognition();
-
-recognition.lang = "en-US";
-
-recognition.start();
-
-recognition.onresult =
-(event)=>{
-
-document.getElementById(
-"userInput"
-).value =
-event.results[0][0].transcript;
-
-};
-
-}
