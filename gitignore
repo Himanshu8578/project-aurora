@@ -1,10 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment / secrets
 .env
+*.env
 backend/.env
 
-__pycache__/
-*.pyc
-
+# Node
 node_modules/
+
+# VS Code
 .vscode/
 
+# OS
 .DS_Store
+Thumbs.db
+
+# Logs
+*.log
