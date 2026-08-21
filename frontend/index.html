@@ -1,51 +1,4510 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Aurora — Himanshu's personal AI, technology, physics and innovation portfolio."
+    >
 
-<title>HimiGPT</title>
+    <meta
+        name="author"
+        content="Himanshu"
+    >
 
-<link rel="stylesheet" href="style.css">
+    <title>AURORA — Intelligence OS | Himanshu</title>
 
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main stylesheet -->
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
 </head>
 
 <body>
 
-<div class="chat-container">
+    <!-- =========================================================
+         AURORA 3D UNIVERSE BACKGROUND
+         ========================================================= -->
 
-<h1>🤖 HimiGPT</h1>
+    <div id="universe">
 
-<div id="chatMessages" class="chat-box">
+        <div class="space-layer space-layer-1"></div>
+        <div class="space-layer space-layer-2"></div>
+        <div class="space-layer space-layer-3"></div>
 
-<div class="bot-message">
-Hello! I am HimiGPT.
-</div>
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
 
-</div>
+        <div class="stars stars-small"></div>
+        <div class="stars stars-medium"></div>
+        <div class="stars stars-large"></div>
 
-<div class="input-area">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
 
-<input
-type="text"
-id="userInput"
-placeholder="Ask anything...">
+        <div class="cosmic-core"></div>
 
-<button onclick="sendMessage()">
-Send
-</button>
+    </div>
 
-</div>
 
-</div>
+    <!-- =========================================================
+         APP SHELL
+         ========================================================= -->
 
-<script src="script.js"></script>
+    <div id="app">
+
+        <!-- =====================================================
+             TOP BAR
+             ===================================================== -->
+
+        <header class="topbar">
+
+            <div class="brand">
+
+                <div class="brand-symbol">
+                    A
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>AURORA</strong>
+
+                    <span>
+                        INTELLIGENCE OS
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    ALL SYSTEMS OPERATIONAL
+                </span>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div
+                    id="liveClock"
+                    class="live-clock"
+                >
+                    00:00:00
+                </div>
+
+                <div
+                    id="liveDate"
+                    class="live-date"
+                >
+                    --
+                </div>
+
+                <button
+                    class="icon-button"
+                    id="fullscreenBtn"
+                    title="Fullscreen"
+                    type="button"
+                >
+                    ⛶
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             MAIN APPLICATION
+             ===================================================== -->
+
+        <div class="app-layout">
+
+
+            <!-- =================================================
+                 LEFT SIDEBAR
+                 ================================================= -->
+
+            <aside class="sidebar">
+
+                <div class="sidebar-section">
+
+                    <div class="sidebar-label">
+                        COMMAND
+                    </div>
+
+
+                    <button
+                        class="nav-item active"
+                        data-section="overview"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ◉
+                        </span>
+
+                        <span class="nav-name">
+                            Overview
+                        </span>
+
+                        <span class="nav-number">
+                            01
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-section="aurora-ai"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ✦
+                        </span>
+
+                        <span class="nav-name">
+                            Aurora AI
+                        </span>
+
+                        <span class="nav-number">
+                            02
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-section="projects"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ◇
+                        </span>
+
+                        <span class="nav-name">
+                            Projects
+                        </span>
+
+                        <span class="nav-number">
+                            03
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-section="mission"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ↝
+                        </span>
+
+                        <span class="nav-name">
+                            Mission
+                        </span>
+
+                        <span class="nav-number">
+                            04
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="sidebar-section">
+
+                    <div class="sidebar-label">
+                        KNOWLEDGE
+                    </div>
+
+
+                    <button
+                        class="nav-item"
+                        data-section="skills"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ∑
+                        </span>
+
+                        <span class="nav-name">
+                            Skills
+                        </span>
+
+                        <span class="nav-number">
+                            05
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-section="memory"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ◎
+                        </span>
+
+                        <span class="nav-name">
+                            Memory
+                        </span>
+
+                        <span class="nav-number">
+                            06
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="nav-item"
+                        data-section="research"
+                        type="button"
+                    >
+
+                        <span class="nav-icon">
+                            ◌
+                        </span>
+
+                        <span class="nav-name">
+                            Research
+                        </span>
+
+                        <span class="nav-number">
+                            07
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <!-- SIDEBAR PROFILE -->
+
+                <div class="sidebar-profile">
+
+                    <div class="profile-avatar">
+                        H
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            HIMANSHU
+                        </strong>
+
+                        <span>
+                            AI BUILDER
+                        </span>
+
+                    </div>
+
+                    <span class="profile-online"></span>
+
+                </div>
+
+
+                <div class="sidebar-version">
+                    AURORA OS • v1.0
+                </div>
+
+            </aside>
+
+
+            <!-- =================================================
+                 CENTER CONTENT
+                 ================================================= -->
+
+            <main class="main-content">
+
+
+                <!-- =================================================
+                     OVERVIEW SECTION
+                     ================================================= -->
+
+                <section
+                    id="overview"
+                    class="page-section active-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                PERSONAL INTELLIGENCE SYSTEM
+                            </div>
+
+                            <h1>
+                                Build.
+                                <span>Think.</span>
+                                <br>
+                                Create the Future.
+                            </h1>
+
+                            <p class="hero-description">
+                                I'm Himanshu — a student, AI builder,
+                                physics enthusiast and technology
+                                explorer building intelligent systems,
+                                futuristic products and ambitious ideas.
+                            </p>
+
+                        </div>
+
+
+                        <div class="hero-status-card">
+
+                            <div class="mini-status">
+                                <span class="status-dot"></span>
+                                ONLINE
+                            </div>
+
+                            <div class="hero-status-title">
+                                AURORA CORE
+                            </div>
+
+                            <div class="hero-status-subtitle">
+                                Intelligence Interface
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- HERO STATS -->
+
+                    <div class="stats-grid">
+
+                        <div class="stat-card">
+
+                            <span class="stat-label">
+                                ROLE
+                            </span>
+
+                            <strong>
+                                AI BUILDER
+                            </strong>
+
+                            <span class="stat-description">
+                                Building intelligent digital systems
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span class="stat-label">
+                                DOMAIN
+                            </span>
+
+                            <strong>
+                                AI × PHYSICS
+                            </strong>
+
+                            <span class="stat-description">
+                                Exploring technology and science
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span class="stat-label">
+                                FOCUS
+                            </span>
+
+                            <strong>
+                                DEEP TECH
+                            </strong>
+
+                            <span class="stat-description">
+                                AI, robotics and future technologies
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span class="stat-label">
+                                STATUS
+                            </span>
+
+                            <strong>
+                                BUILDING
+                            </strong>
+
+                            <span class="stat-description">
+                                Turning ideas into working projects
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CURRENT FOCUS -->
+
+                    <div class="section-block">
+
+                        <div class="block-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    CURRENT FOCUS
+                                </span>
+
+                                <h2>
+                                    What I'm building
+                                </h2>
+
+                            </div>
+
+                            <span class="live-badge">
+                                LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="focus-grid">
+
+                            <article class="focus-card">
+
+                                <div class="focus-number">
+                                    01
+                                </div>
+
+                                <div class="focus-icon">
+                                    ✦
+                                </div>
+
+                                <h3>
+                                    Aurora Intelligence
+                                </h3>
+
+                                <p>
+                                    A futuristic personal intelligence
+                                    interface designed around AI,
+                                    knowledge, memory and productivity.
+                                </p>
+
+                                <span class="focus-tag">
+                                    AI SYSTEM
+                                </span>
+
+                            </article>
+
+
+                            <article class="focus-card">
+
+                                <div class="focus-number">
+                                    02
+                                </div>
+
+                                <div class="focus-icon">
+                                    ◈
+                                </div>
+
+                                <h3>
+                                    HimiGPT
+                                </h3>
+
+                                <p>
+                                    An AI assistant project connecting
+                                    a modern interface with an AI
+                                    backend and intelligent interaction.
+                                </p>
+
+                                <span class="focus-tag">
+                                    AI ASSISTANT
+                                </span>
+
+                            </article>
+
+
+                            <article class="focus-card">
+
+                                <div class="focus-number">
+                                    03
+                                </div>
+
+                                <div class="focus-icon">
+                                    ⚙
+                                </div>
+
+                                <h3>
+                                    Robotics
+                                </h3>
+
+                                <p>
+                                    Exploring intelligent machines,
+                                    robotics, exoskeleton concepts
+                                    and human-machine interaction.
+                                </p>
+
+                                <span class="focus-tag">
+                                    DEEP TECH
+                                </span>
+
+                            </article>
+
+
+                            <article class="focus-card">
+
+                                <div class="focus-number">
+                                    04
+                                </div>
+
+                                <div class="focus-icon">
+                                    ∞
+                                </div>
+
+                                <h3>
+                                    Future Technologies
+                                </h3>
+
+                                <p>
+                                    Learning across AI, software,
+                                    physics and emerging technologies
+                                    to build ambitious systems.
+                                </p>
+
+                                <span class="focus-tag">
+                                    EXPLORATION
+                                </span>
+
+                            </article>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUICK PROFILE -->
+
+                    <div class="section-block">
+
+                        <div class="block-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    PROFILE
+                                </span>
+
+                                <h2>
+                                    About Himanshu
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-overview">
+
+                            <div class="profile-visual">
+
+                                <div class="profile-ring ring-1"></div>
+                                <div class="profile-ring ring-2"></div>
+                                <div class="profile-ring ring-3"></div>
+
+                                <div class="profile-core">
+                                    H
+                                </div>
+
+                            </div>
+
+
+                            <div class="profile-text">
+
+                                <h3>
+                                    Student → Builder → Innovator
+                                </h3>
+
+                                <p>
+                                    My journey combines science,
+                                    programming, artificial intelligence
+                                    and entrepreneurship.
+                                </p>
+
+                                <p>
+                                    I am interested in understanding
+                                    technology deeply and then using
+                                    that knowledge to create real-world
+                                    products rather than only learning
+                                    theory.
+                                </p>
+
+
+                                <div class="profile-pills">
+
+                                    <span>
+                                        Physics
+                                    </span>
+
+                                    <span>
+                                        Python
+                                    </span>
+
+                                    <span>
+                                        AI / ML
+                                    </span>
+
+                                    <span>
+                                        Web Development
+                                    </span>
+
+                                    <span>
+                                        Robotics
+                                    </span>
+
+                                    <span>
+                                        Research
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+                                <!-- =================================================
+                     AURORA AI SECTION
+                     ================================================= -->
+
+                <section
+                    id="aurora-ai"
+                    class="page-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                INTELLIGENCE LAYER
+                            </div>
+
+                            <h1>
+                                Aurora
+                                <span>AI</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                Your personal intelligence interface —
+                                designed to connect ideas, questions,
+                                research and projects through AI.
+                            </p>
+
+                        </div>
+
+
+                        <div class="ai-live-indicator">
+
+                            <span class="status-dot"></span>
+
+                            <span>
+                                AI ENGINE READY
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI TERMINAL -->
+
+                    <div class="ai-terminal">
+
+                        <div class="terminal-header">
+
+                            <div class="terminal-title">
+
+                                <span class="terminal-orb">
+                                    ✦
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        AURORA CORE
+                                    </strong>
+
+                                    <span>
+                                        PERSONAL AI INTERFACE
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="terminal-controls">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="aiMessages"
+                            class="ai-messages"
+                        >
+
+                            <div class="ai-message ai-message-system">
+
+                                <div class="message-avatar">
+                                    A
+                                </div>
+
+                                <div class="message-body">
+
+                                    <span class="message-label">
+                                        AURORA
+                                    </span>
+
+                                    <p>
+                                        Intelligence core initialized.
+                                        Ask me anything about your projects,
+                                        learning, research or ideas.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- AI INPUT -->
+
+                        <form
+                            id="aiForm"
+                            class="ai-input-container"
+                        >
+
+                            <button
+                                type="button"
+                                class="ai-input-icon"
+                                id="aiAttachBtn"
+                                title="Attach file"
+                            >
+                                +
+                            </button>
+
+
+                            <input
+                                type="text"
+                                id="aiInput"
+                                autocomplete="off"
+                                placeholder="Ask Aurora..."
+                                aria-label="Ask Aurora"
+                            >
+
+
+                            <button
+                                type="button"
+                                class="voice-button"
+                                id="voiceBtn"
+                                title="Voice input"
+                            >
+                                ◉
+                            </button>
+
+
+                            <button
+                                type="submit"
+                                class="send-button"
+                                id="sendAiBtn"
+                            >
+                                ↗
+                            </button>
+
+                        </form>
+
+
+                        <div class="ai-input-footer">
+
+                            <span>
+                                AURORA AI
+                            </span>
+
+                            <span>
+                                ENTER TO SEND
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI CAPABILITIES -->
+
+                    <div class="section-block">
+
+                        <div class="block-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    CAPABILITIES
+                                </span>
+
+                                <h2>
+                                    What Aurora can do
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="capability-grid">
+
+
+                            <article class="capability-card">
+
+                                <div class="capability-icon">
+                                    ✦
+                                </div>
+
+                                <div class="capability-content">
+
+                                    <h3>
+                                        Intelligent Chat
+                                    </h3>
+
+                                    <p>
+                                        Ask questions, explore ideas
+                                        and interact with your AI
+                                        intelligence layer.
+                                    </p>
+
+                                </div>
+
+                                <span class="capability-status">
+                                    READY
+                                </span>
+
+                            </article>
+
+
+                            <article class="capability-card">
+
+                                <div class="capability-icon">
+                                    🧠
+                                </div>
+
+                                <div class="capability-content">
+
+                                    <h3>
+                                        Memory
+                                    </h3>
+
+                                    <p>
+                                        Keep important project,
+                                        learning and personal
+                                        context available to Aurora.
+                                    </p>
+
+                                </div>
+
+                                <span class="capability-status">
+                                    READY
+                                </span>
+
+                            </article>
+
+
+                            <article class="capability-card">
+
+                                <div class="capability-icon">
+                                    ◈
+                                </div>
+
+                                <div class="capability-content">
+
+                                    <h3>
+                                        Research
+                                    </h3>
+
+                                    <p>
+                                        Organize research questions,
+                                        technical concepts and
+                                        knowledge exploration.
+                                    </p>
+
+                                </div>
+
+                                <span class="capability-status">
+                                    READY
+                                </span>
+
+                            </article>
+
+
+                            <article class="capability-card">
+
+                                <div class="capability-icon">
+                                    📁
+                                </div>
+
+                                <div class="capability-content">
+
+                                    <h3>
+                                        Files & Knowledge
+                                    </h3>
+
+                                    <p>
+                                        Connect documents, project
+                                        material and useful knowledge
+                                        to your workflow.
+                                    </p>
+
+                                </div>
+
+                                <span class="capability-status">
+                                    READY
+                                </span>
+
+                            </article>
+
+
+                            <article class="capability-card">
+
+                                <div class="capability-icon">
+                                    ⚡
+                                </div>
+
+                                <div class="capability-content">
+
+                                    <h3>
+                                        Project Intelligence
+                                    </h3>
+
+                                    <p>
+                                        Understand your software
+                                        projects and help transform
+                                        concepts into products.
+                                    </p>
+
+                                </div>
+
+                                <span class="capability-status">
+                                    READY
+                                </span>
+
+                            </article>
+
+
+                            <article class="capability-card">
+
+                                <div class="capability-icon">
+                                    🔬
+                                </div>
+
+                                <div class="capability-content">
+
+                                    <h3>
+                                        Science & Learning
+                                    </h3>
+
+                                    <p>
+                                        Explore physics, mathematics,
+                                        AI, programming and technical
+                                        concepts.
+                                    </p>
+
+                                </div>
+
+                                <span class="capability-status">
+                                    READY
+                                </span>
+
+                            </article>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI QUICK COMMANDS -->
+
+                    <div class="section-block">
+
+                        <div class="block-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    QUICK COMMANDS
+                                </span>
+
+                                <h2>
+                                    Start with an idea
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="quick-command-grid">
+
+
+                            <button
+                                class="quick-command"
+                                data-prompt="Help me improve my AI project."
+                                type="button"
+                            >
+
+                                <span class="quick-command-icon">
+                                    ⚙
+                                </span>
+
+                                <span>
+                                    Improve my project
+                                </span>
+
+                                <small>
+                                    PROJECT
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                class="quick-command"
+                                data-prompt="Teach me an AI or machine learning concept from basic to advanced."
+                                type="button"
+                            >
+
+                                <span class="quick-command-icon">
+                                    🧠
+                                </span>
+
+                                <span>
+                                    Learn AI / ML
+                                </span>
+
+                                <small>
+                                    LEARNING
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                class="quick-command"
+                                data-prompt="Help me design a futuristic deep-tech startup idea."
+                                type="button"
+                            >
+
+                                <span class="quick-command-icon">
+                                    🚀
+                                </span>
+
+                                <span>
+                                    Build a startup idea
+                                </span>
+
+                                <small>
+                                    INNOVATION
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                class="quick-command"
+                                data-prompt="Explain this physics concept deeply with intuition and mathematics."
+                                type="button"
+                            >
+
+                                <span class="quick-command-icon">
+                                    ∑
+                                </span>
+
+                                <span>
+                                    Explore physics
+                                </span>
+
+                                <small>
+                                    SCIENCE
+                                </small>
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI ENGINE STATUS -->
+
+                    <div class="engine-panel">
+
+                        <div class="engine-panel-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    CORE DIAGNOSTICS
+                                </span>
+
+                                <h2>
+                                    Aurora System
+                                </h2>
+
+                            </div>
+
+                            <span class="live-badge">
+                                LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="engine-grid">
+
+
+                            <div class="engine-row">
+
+                                <span class="engine-name">
+                                    AI ENGINE
+                                </span>
+
+                                <span class="engine-value online">
+                                    ONLINE
+                                </span>
+
+                            </div>
+
+
+                            <div class="engine-row">
+
+                                <span class="engine-name">
+                                    BACKEND
+                                </span>
+
+                                <span class="engine-value online">
+                                    CONNECTED
+                                </span>
+
+                            </div>
+
+
+                            <div class="engine-row">
+
+                                <span class="engine-name">
+                                    API
+                                </span>
+
+                                <span class="engine-value online">
+                                    READY
+                                </span>
+
+                            </div>
+
+
+                            <div class="engine-row">
+
+                                <span class="engine-name">
+                                    MEMORY
+                                </span>
+
+                                <span class="engine-value">
+                                    AVAILABLE
+                                </span>
+
+                            </div>
+
+
+                            <div class="engine-row">
+
+                                <span class="engine-name">
+                                    SECURITY
+                                </span>
+
+                                <span class="engine-value online">
+                                    SECURE
+                                </span>
+
+                            </div>
+
+
+                            <div class="engine-row">
+
+                                <span class="engine-name">
+                                    SYSTEM
+                                </span>
+
+                                <span class="engine-value online">
+                                    OPERATIONAL
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+                                <!-- =================================================
+                     PROJECTS SECTION
+                     ================================================= -->
+
+                <section
+                    id="projects"
+                    class="page-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                BUILD LABORATORY
+                            </div>
+
+                            <h1>
+                                Projects
+                                <span>& Experiments</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                A collection of systems, interfaces,
+                                experiments and ideas I'm building while
+                                exploring AI, software, physics and
+                                next-generation technology.
+                            </p>
+
+                        </div>
+
+                        <div class="project-counter">
+
+                            <strong>
+                                04
+                            </strong>
+
+                            <span>
+                                ACTIVE<br>
+                                SYSTEMS
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         FEATURED PROJECT — HIMIGPT
+                         ================================================= -->
+
+                    <article class="project-featured">
+
+                        <div class="project-featured-glow"></div>
+
+                        <div class="project-featured-content">
+
+                            <div class="project-meta">
+
+                                <span>
+                                    PROJECT / 001
+                                </span>
+
+                                <span class="project-live">
+                                    ● BUILDING
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-main-icon">
+                                ✦
+                            </div>
+
+
+                            <div class="project-category">
+                                ARTIFICIAL INTELLIGENCE
+                            </div>
+
+
+                            <h2>
+                                HimiGPT
+                            </h2>
+
+
+                            <p>
+                                A personal AI assistant ecosystem designed
+                                to combine conversational intelligence,
+                                modern web interfaces, backend AI services,
+                                memory and multimodal interaction.
+                            </p>
+
+
+                            <div class="project-tech-stack">
+
+                                <span>
+                                    Python
+                                </span>
+
+                                <span>
+                                    FastAPI
+                                </span>
+
+                                <span>
+                                    Gemini
+                                </span>
+
+                                <span>
+                                    JavaScript
+                                </span>
+
+                                <span>
+                                    REST API
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <button
+                                    class="project-btn primary-project-btn"
+                                    type="button"
+                                    data-project="himigpt"
+                                >
+                                    Explore Project
+                                    <span>→</span>
+                                </button>
+
+                                <button
+                                    class="project-btn secondary-project-btn"
+                                    type="button"
+                                    data-section="aurora-ai"
+                                >
+                                    Ask Aurora
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-visual">
+
+                            <div class="hologram-grid"></div>
+
+                            <div class="hologram-ring ring-a"></div>
+                            <div class="hologram-ring ring-b"></div>
+                            <div class="hologram-ring ring-c"></div>
+
+                            <div class="hologram-core">
+
+                                <span>
+                                    AI
+                                </span>
+
+                                <small>
+                                    CORE
+                                </small>
+
+                            </div>
+
+                            <div class="hologram-data data-1">
+                                NEURAL
+                            </div>
+
+                            <div class="hologram-data data-2">
+                                API
+                            </div>
+
+                            <div class="hologram-data data-3">
+                                AI CORE
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         PROJECT GRID
+                         ================================================= -->
+
+                    <div class="projects-grid">
+
+
+                        <!-- PROJECT 02 -->
+
+                        <article class="project-card">
+
+                            <div class="project-card-top">
+
+                                <span>
+                                    002
+                                </span>
+
+                                <span>
+                                    WEB / 3D
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-icon">
+                                ◇
+                            </div>
+
+
+                            <div class="project-status">
+                                EXPERIMENT
+                            </div>
+
+
+                            <h3>
+                                Aurora
+                            </h3>
+
+
+                            <p>
+                                A futuristic personal intelligence
+                                operating system combining portfolio,
+                                AI interaction, projects, research,
+                                knowledge and a dynamic universe interface.
+                            </p>
+
+
+                            <div class="small-tech-stack">
+
+                                <span>
+                                    HTML
+                                </span>
+
+                                <span>
+                                    CSS
+                                </span>
+
+                                <span>
+                                    JavaScript
+                                </span>
+
+                                <span>
+                                    Vite
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-footer">
+
+                                <span>
+                                    INTELLIGENCE OS
+                                </span>
+
+                                <button
+                                    type="button"
+                                    data-section="overview"
+                                >
+                                    OPEN →
+                                </button>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- PROJECT 03 -->
+
+                        <article class="project-card">
+
+                            <div class="project-card-top">
+
+                                <span>
+                                    003
+                                </span>
+
+                                <span>
+                                    3D / WEBGL
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-icon">
+                                ◈
+                            </div>
+
+
+                            <div class="project-status">
+                                EXPERIMENT
+                            </div>
+
+
+                            <h3>
+                                Immersive 3D Worlds
+                            </h3>
+
+
+                            <p>
+                                Exploring interactive 3D interfaces,
+                                digital environments, WebGL concepts
+                                and cinematic technology experiences
+                                inside the browser.
+                            </p>
+
+
+                            <div class="small-tech-stack">
+
+                                <span>
+                                    WebGL
+                                </span>
+
+                                <span>
+                                    JavaScript
+                                </span>
+
+                                <span>
+                                    3D
+                                </span>
+
+                                <span>
+                                    UI
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-footer">
+
+                                <span>
+                                    DIGITAL WORLDS
+                                </span>
+
+                                <button
+                                    type="button"
+                                    data-section="skills"
+                                >
+                                    STACK →
+                                </button>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- PROJECT 04 -->
+
+                        <article class="project-card">
+
+                            <div class="project-card-top">
+
+                                <span>
+                                    004
+                                </span>
+
+                                <span>
+                                    FULL STACK
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-icon">
+                                ⚡
+                            </div>
+
+
+                            <div class="project-status">
+                                BUILDING
+                            </div>
+
+
+                            <h3>
+                                AI Web Systems
+                            </h3>
+
+
+                            <p>
+                                Building modern web applications that
+                                connect frontend interfaces with
+                                Python backends, APIs and AI services.
+                            </p>
+
+
+                            <div class="small-tech-stack">
+
+                                <span>
+                                    Python
+                                </span>
+
+                                <span>
+                                    FastAPI
+                                </span>
+
+                                <span>
+                                    JavaScript
+                                </span>
+
+                                <span>
+                                    REST
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-footer">
+
+                                <span>
+                                    SOFTWARE
+                                </span>
+
+                                <button
+                                    type="button"
+                                    data-section="skills"
+                                >
+                                    VIEW →
+                                </button>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- PROJECT 05 -->
+
+                        <article class="project-card">
+
+                            <div class="project-card-top">
+
+                                <span>
+                                    005
+                                </span>
+
+                                <span>
+                                    GAME DEV
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-icon">
+                                ◉
+                            </div>
+
+
+                            <div class="project-status">
+                                DEVELOPMENT
+                            </div>
+
+
+                            <h3>
+                                NEXUS
+                            </h3>
+
+
+                            <p>
+                                An original mobile battle-royale game
+                                concept focused on polished gameplay,
+                                multiplayer systems, mobile performance
+                                and an original futuristic identity.
+                            </p>
+
+
+                            <div class="small-tech-stack">
+
+                                <span>
+                                    Game Dev
+                                </span>
+
+                                <span>
+                                    3D
+                                </span>
+
+                                <span>
+                                    Multiplayer
+                                </span>
+
+                                <span>
+                                    Mobile
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-footer">
+
+                                <span>
+                                    GAME TECHNOLOGY
+                                </span>
+
+                                <button
+                                    type="button"
+                                    data-section="overview"
+                                >
+                                    SYSTEM →
+                                </button>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- PROJECT 06 -->
+
+                        <article class="project-card">
+
+                            <div class="project-card-top">
+
+                                <span>
+                                    006
+                                </span>
+
+                                <span>
+                                    FUTURE LAB
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-icon">
+                                ⌬
+                            </div>
+
+
+                            <div class="project-status">
+                                RESEARCH
+                            </div>
+
+
+                            <h3>
+                                Robotics & Human Augmentation
+                            </h3>
+
+
+                            <p>
+                                Long-term exploration into intelligent
+                                machines, robotics, exoskeleton concepts,
+                                human-machine interfaces and AI-powered
+                                physical systems.
+                            </p>
+
+
+                            <div class="small-tech-stack">
+
+                                <span>
+                                    AI
+                                </span>
+
+                                <span>
+                                    Robotics
+                                </span>
+
+                                <span>
+                                    Sensors
+                                </span>
+
+                                <span>
+                                    Deep Tech
+                                </span>
+
+                            </div>
+
+
+                            <div class="project-card-footer">
+
+                                <span>
+                                    FUTURE RESEARCH
+                                </span>
+
+                                <button
+                                    type="button"
+                                    data-section="research"
+                                >
+                                    RESEARCH →
+                                </button>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PROJECT PIPELINE
+                         ================================================= -->
+
+                    <div class="section-block project-pipeline">
+
+                        <div class="block-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    DEVELOPMENT PIPELINE
+                                </span>
+
+                                <h2>
+                                    From idea to system
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pipeline">
+
+                            <div class="pipeline-step">
+
+                                <div class="pipeline-number">
+                                    01
+                                </div>
+
+                                <div class="pipeline-line"></div>
+
+                                <h3>
+                                    IDEA
+                                </h3>
+
+                                <p>
+                                    Identify a problem or
+                                    ambitious possibility.
+                                </p>
+
+                            </div>
+
+
+                            <div class="pipeline-step">
+
+                                <div class="pipeline-number">
+                                    02
+                                </div>
+
+                                <div class="pipeline-line"></div>
+
+                                <h3>
+                                    RESEARCH
+                                </h3>
+
+                                <p>
+                                    Understand the science,
+                                    technology and constraints.
+                                </p>
+
+                            </div>
+
+
+                            <div class="pipeline-step">
+
+                                <div class="pipeline-number">
+                                    03
+                                </div>
+
+                                <div class="pipeline-line"></div>
+
+                                <h3>
+                                    BUILD
+                                </h3>
+
+                                <p>
+                                    Turn the concept into a
+                                    working prototype.
+                                </p>
+
+                            </div>
+
+
+                            <div class="pipeline-step">
+
+                                <div class="pipeline-number">
+                                    04
+                                </div>
+
+                                <div class="pipeline-line"></div>
+
+                                <h3>
+                                    ITERATE
+                                </h3>
+
+                                <p>
+                                    Test, improve and push
+                                    the system further.
+                                </p>
+
+                            </div>
+
+
+                            <div class="pipeline-step">
+
+                                <div class="pipeline-number">
+                                    05
+                                </div>
+
+                                <div class="pipeline-line"></div>
+
+                                <h3>
+                                    LAUNCH
+                                </h3>
+
+                                <p>
+                                    Convert the project into
+                                    something people can use.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PROJECT PHILOSOPHY
+                         ================================================= -->
+
+                    <div class="project-philosophy">
+
+                        <div class="philosophy-symbol">
+                            ∞
+                        </div>
+
+                        <div>
+
+                            <span class="eyebrow">
+                                BUILD PHILOSOPHY
+                            </span>
+
+                            <h2>
+                                Don't just learn technology.
+                                <span>Build with it.</span>
+                            </h2>
+
+                            <p>
+                                Every project is an opportunity to move
+                                from theory to implementation — from
+                                understanding an idea to creating a system
+                                that actually works.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ABOUT / EDUCATION SECTION
+                     ================================================= -->
+
+                <section
+                    id="about"
+                    class="page-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                IDENTITY & FOUNDATION
+                            </div>
+
+                            <h1>
+                                About
+                                <span>Himanshu</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                A physics foundation evolving into
+                                artificial intelligence, software,
+                                robotics and deep technology.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-hero">
+
+                        <div class="about-avatar-area">
+
+                            <div class="about-orbit orbit-a"></div>
+                            <div class="about-orbit orbit-b"></div>
+                            <div class="about-orbit orbit-c"></div>
+
+                            <div class="about-avatar">
+                                H
+                            </div>
+
+                        </div>
+
+
+                        <div class="about-introduction">
+
+                            <span class="eyebrow">
+                                CURRENT IDENTITY
+                            </span>
+
+                            <h2>
+                                Student.
+                                <span>Builder.</span>
+                                Explorer.
+                            </h2>
+
+                            <p>
+                                I am building my path around the
+                                intersection of scientific thinking,
+                                programming and artificial intelligence.
+                            </p>
+
+                            <p>
+                                Physics provides the foundation:
+                                mathematics, modelling, problem solving
+                                and understanding how systems behave.
+                                Programming provides the ability to turn
+                                those ideas into working technology.
+                            </p>
+
+                            <p>
+                                My interests extend toward AI, robotics,
+                                computer vision, intelligent machines,
+                                deep-tech startups and advanced
+                                human-machine systems.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EDUCATION -->
+
+                    <div class="section-block">
+
+                        <div class="block-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    EDUCATION
+                                </span>
+
+                                <h2>
+                                    Academic Foundation
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="education-grid">
+
+                            <article class="education-card">
+
+                                <div class="education-icon">
+                                    ⚛
+                                </div>
+
+                                <div>
+
+                                    <span class="education-label">
+                                        UNDERGRADUATE
+                                    </span>
+
+                                    <h3>
+                                        B.Sc. Physics
+                                    </h3>
+
+                                    <p>
+                                        Building a strong foundation
+                                        across mathematical physics,
+                                        mechanics, waves, thermal physics,
+                                        quantum mechanics,
+                                        electromagnetism, electronics
+                                        and astrophysics.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="education-card">
+
+                                <div class="education-icon">
+                                    ∑
+                                </div>
+
+                                <div>
+
+                                    <span class="education-label">
+                                        COMPUTATIONAL FOUNDATION
+                                    </span>
+
+                                    <h3>
+                                        Mathematics + Computation
+                                    </h3>
+
+                                    <p>
+                                        Developing mathematical and
+                                        computational thinking for AI,
+                                        programming, scientific computing
+                                        and future research.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="education-card">
+
+                                <div class="education-icon">
+                                    AI
+                                </div>
+
+                                <div>
+
+                                    <span class="education-label">
+                                        SELF-DIRECTED LEARNING
+                                    </span>
+
+                                    <h3>
+                                        Artificial Intelligence
+                                    </h3>
+
+                                    <p>
+                                        Continuously building knowledge
+                                        across machine learning,
+                                        generative AI, computer vision,
+                                        AI engineering and intelligent
+                                        applications.
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PERSONAL PRINCIPLES -->
+
+                    <div class="section-block">
+
+                        <div class="block-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    PRINCIPLES
+                                </span>
+
+                                <h2>
+                                    How I approach building
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="principles-grid">
+
+                            <div class="principle-card">
+
+                                <span>
+                                    01
+                                </span>
+
+                                <h3>
+                                    Learn Deeply
+                                </h3>
+
+                                <p>
+                                    Understand the fundamentals before
+                                    trying to build advanced systems.
+                                </p>
+
+                            </div>
+
+
+                            <div class="principle-card">
+
+                                <span>
+                                    02
+                                </span>
+
+                                <h3>
+                                    Build Real Things
+                                </h3>
+
+                                <p>
+                                    Convert knowledge into projects,
+                                    prototypes and experiments.
+                                </p>
+
+                            </div>
+
+
+                            <div class="principle-card">
+
+                                <span>
+                                    03
+                                </span>
+
+                                <h3>
+                                    Think Long-Term
+                                </h3>
+
+                                <p>
+                                    Focus on skills and technologies
+                                    that compound over years.
+                                </p>
+
+                            </div>
+
+
+                            <div class="principle-card">
+
+                                <span>
+                                    04
+                                </span>
+
+                                <h3>
+                                    Keep Exploring
+                                </h3>
+
+                                <p>
+                                    Follow difficult questions across
+                                    science, engineering and technology.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+                                <!-- =================================================
+                     SKILLS SECTION
+                     ================================================= -->
+
+                <section
+                    id="skills"
+                    class="page-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                CAPABILITY MATRIX
+                            </div>
+
+                            <h1>
+                                Skills &
+                                <span>Technologies</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                A continuously expanding technical
+                                foundation across programming, AI,
+                                science, software engineering and
+                                emerging technologies.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CORE SKILLS -->
+
+                    <div class="skills-dashboard">
+
+
+                        <!-- AI -->
+
+                        <article class="skill-domain">
+
+                            <div class="skill-domain-header">
+
+                                <div class="skill-domain-icon">
+                                    AI
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        DOMAIN 01
+                                    </span>
+
+                                    <h3>
+                                        Artificial Intelligence
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-list">
+
+                                <div class="skill-item">
+
+                                    <div>
+                                        <strong>
+                                            Generative AI
+                                        </strong>
+
+                                        <span>
+                                            LLMs • AI Applications
+                                        </span>
+                                    </div>
+
+                                    <b>
+                                        AI
+                                    </b>
+
+                                </div>
+
+
+                                <div class="skill-item">
+
+                                    <div>
+                                        <strong>
+                                            Machine Learning
+                                        </strong>
+
+                                        <span>
+                                            Models • Data • Prediction
+                                        </span>
+                                    </div>
+
+                                    <b>
+                                        ML
+                                    </b>
+
+                                </div>
+
+
+                                <div class="skill-item">
+
+                                    <div>
+                                        <strong>
+                                            Computer Vision
+                                        </strong>
+
+                                        <span>
+                                            Image Intelligence
+                                        </span>
+                                    </div>
+
+                                    <b>
+                                        CV
+                                    </b>
+
+                                </div>
+
+
+                                <div class="skill-item">
+
+                                    <div>
+                                        <strong>
+                                            Intelligent Systems
+                                        </strong>
+
+                                        <span>
+                                            AI-powered applications
+                                        </span>
+                                    </div>
+
+                                    <b>
+                                        SYS
+                                    </b>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- PROGRAMMING -->
+
+                        <article class="skill-domain">
+
+                            <div class="skill-domain-header">
+
+                                <div class="skill-domain-icon">
+                                    &lt;/&gt;
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        DOMAIN 02
+                                    </span>
+
+                                    <h3>
+                                        Programming
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="technology-cloud">
+
+                                <span class="tech-primary">
+                                    Python
+                                </span>
+
+                                <span class="tech-primary">
+                                    JavaScript
+                                </span>
+
+                                <span>
+                                    HTML
+                                </span>
+
+                                <span>
+                                    CSS
+                                </span>
+
+                                <span>
+                                    FastAPI
+                                </span>
+
+                                <span>
+                                    REST APIs
+                                </span>
+
+                                <span>
+                                    Git
+                                </span>
+
+                                <span>
+                                    GitHub
+                                </span>
+
+                                <span>
+                                    Vite
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- SCIENCE -->
+
+                        <article class="skill-domain">
+
+                            <div class="skill-domain-header">
+
+                                <div class="skill-domain-icon">
+                                    ⚛
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        DOMAIN 03
+                                    </span>
+
+                                    <h3>
+                                        Physics & Mathematics
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="skill-list">
+
+                                <div class="skill-item">
+
+                                    <div>
+                                        <strong>
+                                            Mathematical Physics
+                                        </strong>
+
+                                        <span>
+                                            Mathematical modelling
+                                        </span>
+                                    </div>
+
+                                    <b>
+                                        ∑
+                                    </b>
+
+                                </div>
+
+
+                                <div class="skill-item">
+
+                                    <div>
+                                        <strong>
+                                            Quantum Mechanics
+                                        </strong>
+
+                                        <span>
+                                            Quantum foundations
+                                        </span>
+                                    </div>
+
+                                    <b>
+                                        Ψ
+                                    </b>
+
+                                </div>
+
+
+                                <div class="skill-item">
+
+                                    <div>
+                                        <strong>
+                                            Electromagnetism
+                                        </strong>
+
+                                        <span>
+                                            Fields • Waves • Systems
+                                        </span>
+                                    </div>
+
+                                    <b>
+                                        EM
+                                    </b>
+
+                                </div>
+
+
+                                <div class="skill-item">
+
+                                    <div>
+                                        <strong>
+                                            Computational Thinking
+                                        </strong>
+
+                                        <span>
+                                            Algorithms • Problem solving
+                                        </span>
+                                    </div>
+
+                                    <b>
+                                        CT
+                                    </b>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- FUTURE TECH -->
+
+                        <article class="skill-domain">
+
+                            <div class="skill-domain-header">
+
+                                <div class="skill-domain-icon">
+                                    ◈
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        DOMAIN 04
+                                    </span>
+
+                                    <h3>
+                                        Future Technology
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="technology-cloud">
+
+                                <span class="tech-primary">
+                                    Robotics
+                                </span>
+
+                                <span>
+                                    Deep Tech
+                                </span>
+
+                                <span>
+                                    3D Interfaces
+                                </span>
+
+                                <span>
+                                    WebGL
+                                </span>
+
+                                <span>
+                                    Human-Machine Interaction
+                                </span>
+
+                                <span>
+                                    Exoskeleton Concepts
+                                </span>
+
+                                <span>
+                                    Intelligent Machines
+                                </span>
+
+                                <span>
+                                    Research
+                                </span>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- LEARNING STACK -->
+
+                    <div class="section-block">
+
+                        <div class="block-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    CONTINUOUS LEARNING
+                                </span>
+
+                                <h2>
+                                    Current Learning Stack
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="learning-stack">
+
+                            <div class="learning-card">
+
+                                <span class="learning-number">
+                                    01
+                                </span>
+
+                                <div class="learning-icon">
+                                    🧠
+                                </div>
+
+                                <h3>
+                                    AI / ML
+                                </h3>
+
+                                <p>
+                                    Strengthening foundations in
+                                    artificial intelligence, machine
+                                    learning and modern AI systems.
+                                </p>
+
+                            </div>
+
+
+                            <div class="learning-card">
+
+                                <span class="learning-number">
+                                    02
+                                </span>
+
+                                <div class="learning-icon">
+                                    🐍
+                                </div>
+
+                                <h3>
+                                    Python
+                                </h3>
+
+                                <p>
+                                    Developing Python skills for AI,
+                                    automation, scientific computing
+                                    and backend engineering.
+                                </p>
+
+                            </div>
+
+
+                            <div class="learning-card">
+
+                                <span class="learning-number">
+                                    03
+                                </span>
+
+                                <div class="learning-icon">
+                                    ⚛
+                                </div>
+
+                                <h3>
+                                    Physics
+                                </h3>
+
+                                <p>
+                                    Continuing the physics foundation
+                                    while connecting scientific concepts
+                                    with computational technology.
+                                </p>
+
+                            </div>
+
+
+                            <div class="learning-card">
+
+                                <span class="learning-number">
+                                    04
+                                </span>
+
+                                <div class="learning-icon">
+                                    🤖
+                                </div>
+
+                                <h3>
+                                    Robotics
+                                </h3>
+
+                                <p>
+                                    Exploring the fundamentals required
+                                    to eventually build intelligent
+                                    physical systems.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     MISSION SECTION
+                     ================================================= -->
+
+                <section
+                    id="mission"
+                    class="page-section"
+                >
+
+                    <div class="mission-hero">
+
+                        <div class="eyebrow">
+                            LONG-TERM DIRECTION
+                        </div>
+
+                        <h1>
+                            Build technology
+                            <br>
+                            that feels like
+                            <span>the future.</span>
+                        </h1>
+
+                        <p>
+                            The mission is bigger than learning individual
+                            technologies. The objective is to develop the
+                            scientific, engineering and entrepreneurial
+                            ability required to create ambitious systems.
+                        </p>
+
+                    </div>
+
+
+                    <!-- MISSION PILLARS -->
+
+                    <div class="mission-grid">
+
+
+                        <article class="mission-card">
+
+                            <span class="mission-number">
+                                01
+                            </span>
+
+                            <div class="mission-icon">
+                                🧠
+                            </div>
+
+                            <h3>
+                                Artificial Intelligence
+                            </h3>
+
+                            <p>
+                                Build increasingly capable intelligent
+                                systems that can reason, understand,
+                                assist and interact with the world.
+                            </p>
+
+                            <div class="mission-line"></div>
+
+                            <span>
+                                INTELLIGENCE
+                            </span>
+
+                        </article>
+
+
+                        <article class="mission-card">
+
+                            <span class="mission-number">
+                                02
+                            </span>
+
+                            <div class="mission-icon">
+                                🤖
+                            </div>
+
+                            <h3>
+                                Robotics
+                            </h3>
+
+                            <p>
+                                Connect software intelligence with
+                                physical machines and create useful
+                                human-machine systems.
+                            </p>
+
+                            <div class="mission-line"></div>
+
+                            <span>
+                                PHYSICAL AI
+                            </span>
+
+                        </article>
+
+
+                        <article class="mission-card">
+
+                            <span class="mission-number">
+                                03
+                            </span>
+
+                            <div class="mission-icon">
+                                ⚛
+                            </div>
+
+                            <h3>
+                                Science & Research
+                            </h3>
+
+                            <p>
+                                Explore difficult scientific and
+                                technological questions using physics,
+                                mathematics and computation.
+                            </p>
+
+                            <div class="mission-line"></div>
+
+                            <span>
+                                DISCOVERY
+                            </span>
+
+                        </article>
+
+
+                        <article class="mission-card">
+
+                            <span class="mission-number">
+                                04
+                            </span>
+
+                            <div class="mission-icon">
+                                🚀
+                            </div>
+
+                            <h3>
+                                Deep-Tech Entrepreneurship
+                            </h3>
+
+                            <p>
+                                Eventually turn strong technical ideas
+                                into products, companies and systems
+                                capable of creating real impact.
+                            </p>
+
+                            <div class="mission-line"></div>
+
+                            <span>
+                                INNOVATION
+                            </span>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- FUTURE VISION -->
+
+                    <div class="future-vision">
+
+                        <div class="future-vision-content">
+
+                            <span class="eyebrow">
+                                FUTURE VISION
+                            </span>
+
+                            <h2>
+                                AI
+                                <span>×</span>
+                                Robotics
+                                <span>×</span>
+                                Physics
+                                <span>×</span>
+                                Human Potential
+                            </h2>
+
+                            <p>
+                                The long-term direction is to explore
+                                technologies where artificial intelligence,
+                                robotics, advanced computation and physical
+                                science converge.
+                            </p>
+
+                        </div>
+
+
+                        <div class="future-constellation">
+
+                            <div class="constellation-node node-ai">
+                                AI
+                            </div>
+
+                            <div class="constellation-node node-robotics">
+                                ROBOTICS
+                            </div>
+
+                            <div class="constellation-node node-physics">
+                                PHYSICS
+                            </div>
+
+                            <div class="constellation-node node-human">
+                                HUMAN
+                            </div>
+
+                            <div class="constellation-core">
+                                H
+                            </div>
+
+                            <div class="constellation-line line-1"></div>
+                            <div class="constellation-line line-2"></div>
+                            <div class="constellation-line line-3"></div>
+                            <div class="constellation-line line-4"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUILD PHILOSOPHY -->
+
+                    <div class="mission-process">
+
+                        <div class="process-heading">
+
+                            <span class="eyebrow">
+                                OPERATING PRINCIPLE
+                            </span>
+
+                            <h2>
+                                Imagine → Engineer → Iterate → Launch
+                            </h2>
+
+                        </div>
+
+
+                        <div class="process-grid">
+
+                            <div class="process-item">
+
+                                <div>
+                                    01
+                                </div>
+
+                                <h3>
+                                    Imagine
+                                </h3>
+
+                                <p>
+                                    Start with a difficult question,
+                                    problem or possibility.
+                                </p>
+
+                            </div>
+
+
+                            <div class="process-item">
+
+                                <div>
+                                    02
+                                </div>
+
+                                <h3>
+                                    Engineer
+                                </h3>
+
+                                <p>
+                                    Learn the fundamentals and build
+                                    a real implementation.
+                                </p>
+
+                            </div>
+
+
+                            <div class="process-item">
+
+                                <div>
+                                    03
+                                </div>
+
+                                <h3>
+                                    Iterate
+                                </h3>
+
+                                <p>
+                                    Test, fail, analyze and improve
+                                    the system continuously.
+                                </p>
+
+                            </div>
+
+
+                            <div class="process-item">
+
+                                <div>
+                                    04
+                                </div>
+
+                                <h3>
+                                    Launch
+                                </h3>
+
+                                <p>
+                                    Put the result into the real world
+                                    and learn from actual users.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     RESEARCH SECTION
+                     ================================================= -->
+
+                <section
+                    id="research"
+                    class="page-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                EXPLORATION LAB
+                            </div>
+
+                            <h1>
+                                Research &
+                                <span>Exploration</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                A map of the scientific and technological
+                                areas I want to understand more deeply.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="research-grid">
+
+
+                        <article class="research-card research-main">
+
+                            <div class="research-card-header">
+
+                                <span>
+                                    RESEARCH DOMAIN 01
+                                </span>
+
+                                <span class="research-active">
+                                    EXPLORING
+                                </span>
+
+                            </div>
+
+
+                            <div class="research-big-icon">
+                                Ψ
+                            </div>
+
+
+                            <h2>
+                                AI × Physics
+                            </h2>
+
+
+                            <p>
+                                Exploring the relationship between
+                                scientific modelling, computation,
+                                artificial intelligence and physical
+                                systems.
+                            </p>
+
+
+                            <div class="research-topics">
+
+                                <span>
+                                    Scientific Computing
+                                </span>
+
+                                <span>
+                                    AI
+                                </span>
+
+                                <span>
+                                    Quantum Concepts
+                                </span>
+
+                                <span>
+                                    Mathematical Modelling
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="research-card">
+
+                            <div class="research-card-header">
+
+                                <span>
+                                    DOMAIN 02
+                                </span>
+
+                                <span>
+                                    FUTURE
+                                </span>
+
+                            </div>
+
+                            <div class="research-small-icon">
+                                ◈
+                            </div>
+
+                            <h3>
+                                Computer Vision
+                            </h3>
+
+                            <p>
+                                Understanding how machines can interpret
+                                images, environments and visual information.
+                            </p>
+
+                        </article>
+
+
+                        <article class="research-card">
+
+                            <div class="research-card-header">
+
+                                <span>
+                                    DOMAIN 03
+                                </span>
+
+                                <span>
+                                    FUTURE
+                                </span>
+
+                            </div>
+
+                            <div class="research-small-icon">
+                                🤖
+                            </div>
+
+                            <h3>
+                                Physical AI
+                            </h3>
+
+                            <p>
+                                Exploring intelligent machines,
+                                robotics, sensors and autonomous systems.
+                            </p>
+
+                        </article>
+
+
+                        <article class="research-card">
+
+                            <div class="research-card-header">
+
+                                <span>
+                                    DOMAIN 04
+                                </span>
+
+                                <span>
+                                    FUTURE
+                                </span>
+
+                            </div>
+
+                            <div class="research-small-icon">
+                                ⚡
+                            </div>
+
+                            <h3>
+                                Human Augmentation
+                            </h3>
+
+                            <p>
+                                Long-term interest in systems that
+                                enhance human capability through
+                                engineering and intelligent technology.
+                            </p>
+
+                        </article>
+
+
+                        <article class="research-card">
+
+                            <div class="research-card-header">
+
+                                <span>
+                                    DOMAIN 05
+                                </span>
+
+                                <span>
+                                    FUTURE
+                                </span>
+
+                            </div>
+
+                            <div class="research-small-icon">
+                                ∞
+                            </div>
+
+                            <h3>
+                                Emerging Technology
+                            </h3>
+
+                            <p>
+                                Following difficult and unconventional
+                                technology ideas that could shape
+                                future industries.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- RESEARCH QUESTION -->
+
+                    <div class="research-question">
+
+                        <div class="question-symbol">
+                            ?
+                        </div>
+
+                        <div>
+
+                            <span class="eyebrow">
+                                THE QUESTION
+                            </span>
+
+                            <h2>
+                                What becomes possible when
+                                intelligence meets matter?
+                            </h2>
+
+                            <p>
+                                This question sits at the center of the
+                                long-term exploration: how computation,
+                                AI and physical engineering can combine
+                                to create systems that were previously
+                                difficult or impossible to build.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     MEMORY SECTION
+                     ================================================= -->
+
+                <section
+                    id="memory"
+                    class="page-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                PERSONAL KNOWLEDGE LAYER
+                            </div>
+
+                            <h1>
+                                Aurora
+                                <span>Memory</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                A structured view of the ideas, interests,
+                                projects and directions that shape the
+                                Aurora ecosystem.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="memory-dashboard">
+
+
+                        <div class="memory-summary">
+
+                            <div class="memory-core">
+
+                                <div class="memory-orbit"></div>
+
+                                <div class="memory-core-letter">
+                                    H
+                                </div>
+
+                            </div>
+
+                            <h2>
+                                Himanshu Knowledge Core
+                            </h2>
+
+                            <p>
+                                PERSONAL CONTEXT
+                            </p>
+
+                        </div>
+
+
+                        <div class="memory-categories">
+
+
+                            <div class="memory-category">
+
+                                <span>
+                                    01
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        AI & Technology
+                                    </strong>
+
+                                    <p>
+                                        Artificial intelligence,
+                                        software development,
+                                        futuristic interfaces and
+                                        emerging technology.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="memory-category">
+
+                                <span>
+                                    02
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Science
+                                    </strong>
+
+                                    <p>
+                                        Physics, mathematics, quantum
+                                        mechanics, scientific thinking
+                                        and computational exploration.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="memory-category">
+
+                                <span>
+                                    03
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Building
+                                    </strong>
+
+                                    <p>
+                                        AI applications, websites,
+                                        games, 3D interfaces and
+                                        experimental systems.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="memory-category">
+
+                                <span>
+                                    04
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Future
+                                    </strong>
+
+                                    <p>
+                                        Robotics, deep tech, research,
+                                        entrepreneurship and advanced
+                                        human-machine systems.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- KNOWLEDGE MAP -->
+
+                    <div class="section-block">
+
+                        <div class="block-header">
+
+                            <div>
+
+                                <span class="eyebrow">
+                                    KNOWLEDGE GRAPH
+                                </span>
+
+                                <h2>
+                                    Connected interests
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="knowledge-map">
+
+                            <div class="knowledge-node node-center">
+                                HIMANSHU
+                            </div>
+
+                            <div class="knowledge-node node-1">
+                                AI
+                            </div>
+
+                            <div class="knowledge-node node-2">
+                                PHYSICS
+                            </div>
+
+                            <div class="knowledge-node node-3">
+                                ROBOTICS
+                            </div>
+
+                            <div class="knowledge-node node-4">
+                                SOFTWARE
+                            </div>
+
+                            <div class="knowledge-node node-5">
+                                RESEARCH
+                            </div>
+
+                            <div class="knowledge-node node-6">
+                                STARTUPS
+                            </div>
+
+                            <div class="knowledge-line k-line-1"></div>
+                            <div class="knowledge-line k-line-2"></div>
+                            <div class="knowledge-line k-line-3"></div>
+                            <div class="knowledge-line k-line-4"></div>
+                            <div class="knowledge-line k-line-5"></div>
+                            <div class="knowledge-line k-line-6"></div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+                                <!-- =================================================
+                     FUTURE ROADMAP SECTION
+                     ================================================= -->
+
+                <section
+                    id="roadmap"
+                    class="page-section"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <div class="eyebrow">
+                                FUTURE TRAJECTORY
+                            </div>
+
+                            <h1>
+                                The
+                                <span>Roadmap</span>
+                            </h1>
+
+                            <p class="hero-description">
+                                A long-term direction from learning
+                                fundamentals to building advanced
+                                intelligent systems.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="roadmap">
+
+                        <div class="roadmap-line"></div>
+
+
+                        <article class="roadmap-item">
+
+                            <div class="roadmap-marker">
+                                01
+                            </div>
+
+                            <div class="roadmap-content">
+
+                                <span>
+                                    FOUNDATION
+                                </span>
+
+                                <h2>
+                                    Master the Fundamentals
+                                </h2>
+
+                                <p>
+                                    Strengthen physics, mathematics,
+                                    programming, algorithms and
+                                    computational thinking.
+                                </p>
+
+                                <div class="roadmap-tags">
+                                    <span>Physics</span>
+                                    <span>Mathematics</span>
+                                    <span>Python</span>
+                                    <span>DSA</span>
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="roadmap-item">
+
+                            <div class="roadmap-marker">
+                                02
+                            </div>
+
+                            <div class="roadmap-content">
+
+                                <span>
+                                    INTELLIGENCE
+                                </span>
+
+                                <h2>
+                                    Become Strong in AI
+                                </h2>
+
+                                <p>
+                                    Develop deeper capability in
+                                    machine learning, deep learning,
+                                    generative AI and computer vision.
+                                </p>
+
+                                <div class="roadmap-tags">
+                                    <span>ML</span>
+                                    <span>Deep Learning</span>
+                                    <span>LLMs</span>
+                                    <span>Computer Vision</span>
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="roadmap-item">
+
+                            <div class="roadmap-marker">
+                                03
+                            </div>
+
+                            <div class="roadmap-content">
+
+                                <span>
+                                    ENGINEERING
+                                </span>
+
+                                <h2>
+                                    Build Advanced Systems
+                                </h2>
+
+                                <p>
+                                    Combine software engineering,
+                                    AI infrastructure, robotics,
+                                    computer vision and physical
+                                    systems.
+                                </p>
+
+                                <div class="roadmap-tags">
+                                    <span>AI Engineering</span>
+                                    <span>Robotics</span>
+                                    <span>Computer Vision</span>
+                                    <span>Systems</span>
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="roadmap-item">
+
+                            <div class="roadmap-marker">
+                                04
+                            </div>
+
+                            <div class="roadmap-content">
+
+                                <span>
+                                    RESEARCH
+                                </span>
+
+                                <h2>
+                                    Explore Difficult Problems
+                                </h2>
+
+                                <p>
+                                    Work on problems at the intersection
+                                    of physics, AI, computation and
+                                    intelligent machines.
+                                </p>
+
+                                <div class="roadmap-tags">
+                                    <span>Research</span>
+                                    <span>Scientific Computing</span>
+                                    <span>AI + Physics</span>
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="roadmap-item">
+
+                            <div class="roadmap-marker">
+                                05
+                            </div>
+
+                            <div class="roadmap-content">
+
+                                <span>
+                                    ENTREPRENEURSHIP
+                                </span>
+
+                                <h2>
+                                    Turn Technology Into Impact
+                                </h2>
+
+                                <p>
+                                    Transform strong technical ideas
+                                    into products, startups and
+                                    technologies capable of solving
+                                    meaningful problems.
+                                </p>
+
+                                <div class="roadmap-tags">
+                                    <span>Deep Tech</span>
+                                    <span>Startups</span>
+                                    <span>Innovation</span>
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     CONTACT SECTION
+                     ================================================= -->
+
+                <section
+                    id="contact"
+                    class="page-section"
+                >
+
+                    <div class="contact-hero">
+
+                        <div class="eyebrow">
+                            CONNECT
+                        </div>
+
+                        <h1>
+                            Let's build
+                            <span>something</span>
+                            extraordinary.
+                        </h1>
+
+                        <p>
+                            Whether it's AI, software, physics,
+                            research, robotics or an ambitious
+                            technology idea — I'm interested in
+                            building and learning.
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-grid">
+
+                        <article class="contact-card">
+
+                            <div class="contact-icon">
+                                ✦
+                            </div>
+
+                            <span>
+                                AI / TECHNOLOGY
+                            </span>
+
+                            <h3>
+                                Build together
+                            </h3>
+
+                            <p>
+                                Explore ideas around AI,
+                                software and intelligent systems.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="contact-action"
+                                data-section="aurora-ai"
+                            >
+                                TALK TO AURORA →
+                            </button>
+
+                        </article>
+
+
+                        <article class="contact-card">
+
+                            <div class="contact-icon">
+                                ◈
+                            </div>
+
+                            <span>
+                                RESEARCH
+                            </span>
+
+                            <h3>
+                                Explore a problem
+                            </h3>
+
+                            <p>
+                                Discuss scientific questions,
+                                research directions and difficult
+                                technical problems.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="contact-action"
+                                data-section="research"
+                            >
+                                OPEN RESEARCH →
+                            </button>
+
+                        </article>
+
+
+                        <article class="contact-card">
+
+                            <div class="contact-icon">
+                                🚀
+                            </div>
+
+                            <span>
+                                INNOVATION
+                            </span>
+
+                            <h3>
+                                Create the future
+                            </h3>
+
+                            <p>
+                                Technology ideas, products,
+                                startups and deep-tech concepts.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="contact-action"
+                                data-section="mission"
+                            >
+                                VIEW MISSION →
+                            </button>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- CONTACT NOTE -->
+
+                    <div class="contact-note">
+
+                        <div class="contact-note-symbol">
+                            ∞
+                        </div>
+
+                        <div>
+
+                            <span class="eyebrow">
+                                AURORA PRINCIPLE
+                            </span>
+
+                            <h2>
+                                Curiosity is the beginning.
+                                Building is the proof.
+                            </h2>
+
+                            <p>
+                                This portfolio is a living system.
+                                As new projects, skills, research and
+                                experiments are created, Aurora evolves
+                                with them.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </main>
+
+
+            <!-- =====================================================
+                 RIGHT INTELLIGENCE PANEL
+                 ===================================================== -->
+
+            <aside class="right-panel">
+
+
+                <!-- AURORA CORE -->
+
+                <div class="right-panel-header">
+
+                    <span>
+                        SYSTEM CORE
+                    </span>
+
+                    <span class="right-live">
+                        LIVE
+                    </span>
+
+                </div>
+
+
+                <div class="core-visual">
+
+                    <div class="core-orbit core-orbit-1"></div>
+                    <div class="core-orbit core-orbit-2"></div>
+                    <div class="core-orbit core-orbit-3"></div>
+
+                    <div class="core-center">
+                        H
+                    </div>
+
+                </div>
+
+
+                <div class="core-title">
+                    HIMANSHU CORE
+                </div>
+
+                <div class="core-subtitle">
+                    PERSONAL INTELLIGENCE
+                </div>
+
+
+                <!-- SYSTEM STATUS -->
+
+                <div class="right-card">
+
+                    <div class="right-card-title">
+                        SYSTEM STATUS
+                    </div>
+
+
+                    <div class="system-status-row">
+
+                        <span>
+                            FRONTEND
+                        </span>
+
+                        <strong class="online-text">
+                            ONLINE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-status-row">
+
+                        <span>
+                            BACKEND
+                        </span>
+
+                        <strong
+                            id="backendStatus"
+                            class="online-text"
+                        >
+                            ONLINE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-status-row">
+
+                        <span>
+                            AI ENGINE
+                        </span>
+
+                        <strong class="online-text">
+                            READY
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-status-row">
+
+                        <span>
+                            UNIVERSE
+                        </span>
+
+                        <strong class="online-text">
+                            ACTIVE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-status-row">
+
+                        <span>
+                            LATENCY
+                        </span>
+
+                        <strong>
+                            <span id="latency">
+                                --
+                            </span>
+                            ms
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CURRENT FOCUS -->
+
+                <div class="right-card">
+
+                    <div class="right-card-title">
+                        CURRENT FOCUS
+                    </div>
+
+
+                    <div class="right-focus">
+
+                        <div class="right-focus-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                AI / ML
+                            </strong>
+
+                            <span>
+                                Intelligence systems
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="right-focus">
+
+                        <div class="right-focus-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                PHYSICS
+                            </strong>
+
+                            <span>
+                                Scientific foundation
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="right-focus">
+
+                        <div class="right-focus-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                ROBOTICS
+                            </strong>
+
+                            <span>
+                                Physical intelligence
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="right-focus">
+
+                        <div class="right-focus-number">
+                            04
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                DEEP TECH
+                            </strong>
+
+                            <span>
+                                Future technologies
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK NAVIGATION -->
+
+                <div class="right-card">
+
+                    <div class="right-card-title">
+                        QUICK ACCESS
+                    </div>
+
+
+                    <button
+                        class="right-nav-button"
+                        data-section="projects"
+                        type="button"
+                    >
+                        <span>
+                            PROJECTS
+                        </span>
+
+                        <b>
+                            →
+                        </b>
+                    </button>
+
+
+                    <button
+                        class="right-nav-button"
+                        data-section="skills"
+                        type="button"
+                    >
+                        <span>
+                            SKILLS
+                        </span>
+
+                        <b>
+                            →
+                        </b>
+                    </button>
+
+
+                    <button
+                        class="right-nav-button"
+                        data-section="research"
+                        type="button"
+                    >
+                        <span>
+                            RESEARCH
+                        </span>
+
+                        <b>
+                            →
+                        </b>
+                    </button>
+
+
+                    <button
+                        class="right-nav-button"
+                        data-section="contact"
+                        type="button"
+                    >
+                        <span>
+                            CONNECT
+                        </span>
+
+                        <b>
+                            →
+                        </b>
+                    </button>
+
+                </div>
+
+
+                <!-- MINI QUOTE -->
+
+                <div class="right-quote">
+
+                    <div class="quote-mark">
+                        "
+                    </div>
+
+                    <p>
+                        The future is built by people
+                        willing to understand it first.
+                    </p>
+
+                    <span>
+                        — AURORA
+                    </span>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- =====================================================
+             BOTTOM COMMAND BAR
+             ===================================================== -->
+
+        <div class="command-bar">
+
+            <div class="command-brand">
+
+                <span class="command-dot"></span>
+
+                <span>
+                    AURORA
+                </span>
+
+            </div>
+
+
+            <form
+                id="globalCommandForm"
+                class="global-command-form"
+            >
+
+                <span class="command-prefix">
+                    ›
+                </span>
+
+                <input
+                    id="globalCommandInput"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Ask Aurora anything..."
+                    aria-label="Ask Aurora anything"
+                >
+
+                <span class="command-shortcut">
+                    CTRL K
+                </span>
+
+            </form>
+
+
+            <div class="command-actions">
+
+                <button
+                    type="button"
+                    id="globalAskButton"
+                >
+                    ASK
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             GLOBAL NOTIFICATION
+             ===================================================== -->
+
+        <div
+            id="notification"
+            class="notification"
+            aria-live="polite"
+        >
+
+            <div class="notification-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <strong id="notificationTitle">
+                    Aurora
+                </strong>
+
+                <span id="notificationMessage">
+                    System ready.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer class="footer">
+
+            <div class="footer-left">
+
+                <strong>
+                    AURORA
+                </strong>
+
+                <span>
+                    HIMANSHU'S INTELLIGENCE PORTFOLIO
+                </span>
+
+            </div>
+
+
+            <div class="footer-center">
+
+                <span>
+                    AI
+                </span>
+
+                <span>
+                    •
+                </span>
+
+                <span>
+                    PHYSICS
+                </span>
+
+                <span>
+                    •
+                </span>
+
+                <span>
+                    ROBOTICS
+                </span>
+
+                <span>
+                    •
+                </span>
+
+                <span>
+                    DEEP TECH
+                </span>
+
+            </div>
+
+
+            <div class="footer-right">
+
+                <span>
+                    SYSTEM ONLINE
+                </span>
+
+                <span class="footer-dot"></span>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =========================================================
+         HIDDEN FILE INPUT
+         ========================================================= -->
+
+    <input
+        type="file"
+        id="fileInput"
+        hidden
+        multiple
+    >
+
+
+    <!-- =========================================================
+         MAIN JAVASCRIPT
+         ========================================================= -->
+
+    <script src="./script.js"></script>
+
 
 </body>
-
 </html>
