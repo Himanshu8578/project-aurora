@@ -1,7 +1,7 @@
 /* =========================================================
    AURORA — MAIN FRONTEND ENGINE
    ========================================================= */
-
+const API_URL = "https://project-aurora-18ve.onrender.com";
 "use strict";
 
 
@@ -20,7 +20,7 @@
 
 const BACKEND_URL =
     window.AURORA_BACKEND_URL ||
-    "http://localhost:8000";
+    "https://project-aurora-18ve.onrender.com";
 
 
 /* =========================================================
